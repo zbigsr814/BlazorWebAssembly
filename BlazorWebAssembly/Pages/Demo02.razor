@@ -1,0 +1,20 @@
+﻿@page "/demo02"
+@inject IContactService contactService
+
+<h3>Demo02</h3>
+
+@if (contactService.GetContacts().Count == 0)
+{
+	<b>Brak kontaktów do wyświetlenia</b>
+}
+else
+{
+	foreach (var contact in contactService.GetContacts())
+	{
+		<b>@contact.FirstName @contact.LastName</b>
+		<br />
+		<i>@contact.Email</i>
+		<br />
+		<br />
+	}
+}

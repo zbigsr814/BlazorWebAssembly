@@ -1,0 +1,38 @@
+﻿@page "/test"
+
+<h3>Test, witaj @name</h3>
+
+<button @onclick="@(() => { name = "Janusz"; })">Zmień imie</button>
+
+@foreach (var text in texts)
+{
+	<p>@text</p>
+}
+
+@code {
+	public string name = "Adam";
+	public List<string> texts;
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		texts = new List<string>()
+		{
+			"tekst 01",
+			"tekst 02",
+			"tekst 03",
+			"tekst 04",
+			"tekst 05"
+		};
+	}
+
+	public string GetUserName()
+	{
+		return name;
+	}
+
+	public void ChangeName()
+	{
+		name = "Zbyszek";
+	}
+}
